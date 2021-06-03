@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button autoHide="false" (click)="menuLateral()"></ion-menu-button>
+    </ion-button>
+    <ion-title>
+      Escoje tu moto
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Custom Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click) ="getFilter('Ducati')">
+          Ducati
+          <ion-img src="assets/icon/ducati.png"></ion-img>
+        </ion-item>
+        <ion-item (click) ="getFilter('Yamaha')">
+          Yamaha
+          <ion-img src="assets/icon/yamaha.jpg"></ion-img>
+        </ion-item>
+        <ion-item (click) ="getFilter('Honda')">
+          Honda
+          <ion-img src="assets/icon/honda.png"></ion-img>
+        </ion-item>
+        <ion-item (click)= "getMotos()">Todas</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+
+
+  <ion-list>
+    <ion-item *ngFor = "let moto of motos" (click) ="pasoParametro(info)">
+      <ion-img [src]="moto.foto"></ion-img>
+      <span>{{moto.marca}}</span><span>{{moto.modelo}}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>
