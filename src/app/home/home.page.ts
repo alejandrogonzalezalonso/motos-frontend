@@ -50,7 +50,7 @@ export class HomePage {
     };
     this.router.navigate(['detalle'], navigationExtras);
     
-    
+    console.log();
     console.log("Funciona paso parametro");
   }
 
